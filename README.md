@@ -1,8 +1,8 @@
-## Create-React-WebApp
+## Create-React-App 脚手架
 
 
 ### 一、简介
-踩坑无数（╮(╯▽╰)╭ ），集成了 webpack + react + react-redux + react-router + es6 + sass + hot-update 脚手架；
+踩坑无数（╮(╯▽╰)╭ ），集成 webpack + react + react-redux + react-router + es6 + sass + hot-update 脚手架；
 
 基本核心版本：
 * react: "^15.6.1",
@@ -20,10 +20,10 @@
 
 ### 二、如何执行
 
-####  1、将项目克隆到本地，cd 到 react-music-player
+####  1、将项目克隆到本地，cd 到 create-react-app
 ```javascript
-git clone git@github.com:chenjun1127/react-webapp.git
-cd react-webapp
+git clone git@github.com:chenjun1127/create-react-app.git
+cd create-react-app
 ```
 #### 2、安装依赖
 ```javascript

@@ -1,5 +1,5 @@
 {
-  "name": "create-react-webapp",
+  "name": "create-react-app",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
@@ -7,6 +7,16 @@
     "start": "node server",
     "build": "rimraf dist && webpack --progress --config webpack.prod.config.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:chenjun1127/create-react-app.git"
+  },
+  "keywords": [
+    "reactjs",
+    "redus",
+    "react-router",
+    "webpack"
+  ],
   "dependencies": {
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
