@@ -1,0 +1,41 @@
+@import "reset.css";
+
+$fontSize: 1rem;
+$padding: 5px 10px 15px 20px 0px;
+.container-home {
+    h1 {
+        font-size: $fontSize*2;
+        text-align: center;
+        padding: nth($padding, 3);
+    }
+
+    p {
+        padding: nth($padding, 2);
+    }
+}
+
+.container {
+    padding: nth($padding, 2);
+}
+
+.login {
+    h1 {
+        font-size: $fontSize*1.2;
+    }
+    p {
+        border-bottom: 1px solid #d9d9d9;
+        padding: nth($padding, 3) nth($padding, 5);
+        &:last-of-type {
+            margin-bottom: nth($padding, 2);
+        }
+    }
+
+    input {
+        border: 1px solid #3c9;
+        background: #3c9;
+        color: #fff;
+        border-radius: 0.25em;
+        padding: nth($padding, 3) nth($padding, 5);
+        width: 100%;
+    }
+}
