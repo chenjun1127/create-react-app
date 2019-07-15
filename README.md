@@ -4,16 +4,6 @@
 ### 一、简介
 踩坑无数（╮(╯▽╰)╭ ），集成 webpack + react + react-redux + react-router + es6 + sass + hot-update 脚手架；
 
-基本核心版本：
-* react: "^15.6.1",
-* react-dom: "^15.6.1",
-* react-router: "^4.2.0",
-* react-router-dom: "^4.2.2"
-* react-redux: "^5.0.6",
-* redux: "^3.7.2",
-* webpack: "^3.5.5",
-* webpack-dev-server: "^2.7.1"
-
 动图看这里：
 
 ![首页](/pic.gif)

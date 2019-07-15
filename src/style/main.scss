@@ -3,6 +3,8 @@
 $fontSize: 1rem;
 $padding: 5px 10px 15px 20px 0px;
 .container-home {
+    display:flex;
+    flex-direction: column;
     h1 {
         font-size: $fontSize*2;
         text-align: center;

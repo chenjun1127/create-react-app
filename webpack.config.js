@@ -2,7 +2,6 @@ const path = require('path');
 const webpack = require('webpack');
 const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin'); // 自动生成build文件夹及文件：
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const ROOT_PATH = path.resolve(__dirname);
 const SRC_PATH = path.resolve(ROOT_PATH, 'src');
@@ -10,16 +9,20 @@ const BUILD_PATH = path.resolve(ROOT_PATH, 'dist');
 
 module.exports = {
     devtool: 'eval-source-map',
-    entry:{
-        app:[path.resolve(SRC_PATH,'index.js')]
+    mode: 'development',
+    entry: {
+        app: [path.resolve(SRC_PATH, 'index.js')]
     },
     output: {
         path: BUILD_PATH,
         filename: 'js/[name].[hash:5].js',
-        publicPath:'/'
+        publicPath: '/'
     },
     resolve: {
-        extensions: [".js", ".json", ".jsx", ".css",".scss"],
+        extensions: [".js", ".json", ".jsx", ".css", ".scss"],
+    },
+    optimization: {
+        minimize: true
     },
     module: {
         rules: [{
@@ -29,16 +32,10 @@ module.exports = {
             use: {
                 loader: 'babel-loader',
                 options: {
-                    presets:['react', 'es2015']
+                    presets: ['@babel/preset-react', '@babel/preset-env']
                 }
             }
 
-        }, {
-            test: /\.scss$/,
-            use: ['css-hot-loader'].concat(ExtractTextPlugin.extract({ // css-hot-loader结局热替换CSS不自动刷新
-                fallback: 'style-loader',
-                use: ['css-loader', 'sass-loader'],
-            }))
         }, {
             test: /\.(png|jpg|gif)$/,
             use: [{
@@ -48,11 +45,8 @@ module.exports = {
                 }
             }]
         }, {
-            test: /\.css$/,
-            use: ['css-hot-loader'].concat(ExtractTextPlugin.extract({
-                fallback: 'style-loader',
-                use: 'css-loader'
-            }))
+            test: /\.(css|scss)$/,
+            use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'],
         }, {
             test: /\.(mp3|webm|ogg)/,
             use: {
@@ -64,18 +58,16 @@ module.exports = {
         }]
     },
     plugins: [
-        new webpack.optimize.UglifyJsPlugin({ minimize: true }),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify('development')
         }),
         new HtmlWebpackPlugin({
-            title: 'react-music-player',
+            title: 'test',
             template: './templates/index.html',
             filename: 'index.html',
             inject: 'body'
         }),
-        new ExtractTextPlugin("css/style.css"),
         new OpenBrowserPlugin({ url: 'http://localhost:3000' })
     ]
 }
